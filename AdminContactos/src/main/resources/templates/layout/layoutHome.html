@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link th:href="@{webjars/bootstrap/5.0.0-beta2/css/bootstrap.min.css}" rel="stylesheet" />
+	
+	<!-- Estilos Personalizados -->
+	<link th:href="@{css/styles.css}" rel="stylesheet" />
+	
+	<!-- Font Awesome CDN -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <title th:text="${titulo}"></title>
+  </head>
+  <body>
+  
+  <!--Inicio navbar-->
+  <nav id="navbarHome" class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <div id="cajaLogoNombre">
+        <a class="navbar-brand" href="#">
+          <img id="navbarLogo" th:src="@{img/logoIndex.png}" alt="Logo de la empresa">
+          <h1 class="h4 d-inline-block">Administrador de Contactos</h1>
+        </a>
+      </div>      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="menuBox" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto text-uppercase">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" th:href="@{/home}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/about}">Nosotros</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " th:href="@{/ingresar}" tabindex="-1" aria-disabled="true">Iniciar Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " th:href="@{/registro}" tabindex="-1" aria-disabled="true">Registrarse</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--Fin navbar-->
+    
+    <section id="seccion1">
+    	<div th:if="${fragmento}">
+    		<div th:include="${fragmento}"></div>
+    	</div>
+    </section>    
+    
+    
+    <!--Inicio Footer-->
+  <footer>
+    <div id="seccionesFooter" class="container">
+      <div class="row">
+        <div class="col" id="seccion1">
+          <h4 class="text-center">Contactanos</h4>
+          <h5 class="text-center"><u>Soporte</u></h5>
+          <p><strong>Telefonos: </strong>   555-55-55 / 444-44-44</p>
+          <p><strong>Envianos un Correo:</strong>  <a href="mailto:Soporte@daa2.idat.edu.pe">Soporte@daa2.idat.edu.pe</a></p>
+          <hr>
+          <h5 class="text-center"><u>Quejas - Sugerencias</u></h5>
+          <p><strong>Envianos un Correo:</strong>  <a href="mailto:Buzon@daa2.idat.edu.pe">Buzon@daa2.idat.edu.pe</a></p>
+          <hr>
+          <h5 class="text-center"><u>Redes Sociales</u></h5>
+          <div id="containerRedes">
+            <a href="https://www.facebook.com" target="_blank">
+              <img th:src="@{/img/facebook.png}" id="logoFacebook" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+            <img th:src="@{img/instagram.png}" id="logoInstagram" alt="Instagram">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+            <img th:src="@{img/twitter.png}" id="logoTwitter" alt="Twitter">
+            </a>
+            <a href="https://wa.link/ouizj6" target="_blank">
+              <img th:src="@{img/whatsapp.png}" id="logoWhatsapp" alt="Whatsapp">
+            </a>
+            <a href="https://www.linkedIn.com" target="_blank">
+              <img th:src="@{img/linkedin.png}" id="logoLinkedIn" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+        <div class="col" id="seccion2">
+          <h4 class="text-center">Ubicanos</h4>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2319.9315737233424!2d-77.03614268453771!3d-12.067977696289235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6dc14dcc4062cff1!2sIdat%20-%20Lima%20Centro!5e0!3m2!1ses!2spe!4v1617574250350!5m2!1ses!2spe" id="mapa" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      
+
+    </div>
+    <div class="bg-dark">
+      <p class="text-center fst-italic font-monospace text-muted">Desarrollado por Erick Meza, Elvin Cardenas, Edwin Vicente, Rusvel Puchoc --> Todos los derechos Reservados &copy;</p>
+    </div>
+
+  </footer>
+  <!--Fin Footer-->
+    
+    <!-- Script de Bootstrap -->
+    <script	th:src="@{webjars/bootstrap/5.0.0-beta2/js/bootstrap.bundle.js}"></script>
+  </body>
+</html>

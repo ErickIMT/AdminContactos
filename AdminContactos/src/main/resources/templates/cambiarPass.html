@@ -1,0 +1,24 @@
+<section id="contenedorPrincipalLogin">
+	<!-- Mensaje -->
+	
+	<div class="containerlogin" id="containerLogin">
+		<div class="container" th:if="${session.mensaje}">
+			<div class="alert alert-success my-2 text-center">
+				<span th:text="${session.mensaje}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('mensaje')}"></th:block>
+		</div>
+		
+		<div id="loginFormContainer" class="row rowlogin text-center">
+			<h3>Ingresa nuevo Password</h3>
+			<form th:action="@{/cambiarPass}" method="post">
+				<div class="form-group">
+					<input name="newPass" required type="text" placeholder="Nuevo Password"/>
+				</div>
+				<div class="containter text-center mt-3">
+					<button class="btn btn-success">Guardar Password</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>

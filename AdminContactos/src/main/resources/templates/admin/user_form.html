@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section id="contenedorPrincipalSignUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="my-card mt-1">
+
+                    <div th:if="${mensaje}" class="container">
+                        <div th:classappend="${'alert-'+mensaje.tipo}" class="alert text-center" role="alert">
+                            <span th:text="${mensaje.mensaje}"></span>
+                        </div>
+                    </div>
+
+                    <div class="container text-center">
+                        <h1 class="text-center">Edicion de Usuarios </h1>
+                        <br/>
+                        <img style="width: 80px;"th:src="@{img/register.png}" alt="" class="">
+                    </div>
+                    <form th:action="@{/admin/update/save}" method="post" th:object="${usuario}">
+                        <input type="hidden" th:field="*{id}">
+                        <!--Campo Nombre-->
+                        <div class="form-group">
+
+                            <label for="name_field">Username: </label>
+                            <input name="name" type="text" class="form-control" id="name_field"
+                                   aria-describedby="emailHelp" placeholder="Ingresar Nombre" required="required"
+                                   th:field="*{nombre}">
+
+                            <div class="invalid-feedback">
+
+                            </div>
+                        </div>
+                        <div class="btn-group mt-3 mb-3" role="group" aria-label="Basic checkbox toggle button group">
+                            <input name="activo" type="checkbox" class="form-check-input me-2" th:field="*{activo}">
+							<label for="activo">Activo</label>
+                            <div class="invalid-feedback">
+
+                            </div>
+                        </div>
+                    	<input type="text" hidden name="password" th:field="*{password}">
+
+                        <!--Campo Correo-->
+                        <div class="form-group">
+
+                            <label for="email_field">Email: </label>
+                            <input name="email" type="email" class="form-control" id="email_field"
+                                   aria-describedby="emailHelp" placeholder="Ingresar Email" required="required"
+                                   th:field="*{email}">
+
+                            <div class="invalid-feedback">
+
+                            </div>
+                        </div>
+
+                        <!--Campo Roles-->
+                        <div class="form-group">
+
+                            <label class="col-form-label col-4">Roles Asignados: </label>
+                            <div class="col-8">
+                                <th:block th:each="role : ${listRoles}">
+                                    <input type="checkbox" th:field="*{roles}"
+                                    th:value="${role.id}"
+                                    th:text="${role.name}" class="m-2">
+
+                                </th:block>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <!--Campo Acerca de Ti-->
+                        <div class="form-group">
+                            <label for="registrar">Sobre Ti</label>
+
+                            <textarea name="about" placeholder="Cuentanos sobre Ti" rows="7" class="form-control"
+                                      id="registrar" th:field="*{bio}">
+                               </textarea>
+
+                        </div>
+
+
+
+                        <div class="container text-center mt-3" id="botonesLogin">
+                            <button type="submit" class="btn">Enviar</button>
+                            <button type="reset" class="btn">Borrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

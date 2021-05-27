@@ -1,0 +1,63 @@
+
+<div id="mostrar-contactos" class="card ms-3">
+	<div class="card-body">
+		<h1 class="text-center">Tus Contactos</h1>
+		
+		<!-- Busqueda -->
+		<div class="search-container my-4">
+			<input onkeyup="busqueda()" id="search-input" type="text" class="form-control" placeholder="Busca tu contacto"/>
+			<div class="search-result">
+			
+			</div>
+		</div>
+		
+		<table class="table table-success table-striped">
+			<thead class="text-center">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Correo</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c : ${contactos}">
+					<td scope="row">1</td>
+					<td>
+						<img class="imgContacto" th:src="@{'/img/contactos/'+${c.imagen}}" alt="fotoPerfil"/>
+						<span th:text="${c.nombre + ' ' +c.apellidos}"></span>
+					</td>
+					<td class="text-center">
+						<a th:href="@{'/usuario/'+${c.id}+'/contacto'}">
+							<span th:text="${c.correo}"></span>
+						</a>						
+					</td>
+					<td class="text-center" th:text="${c.telefono}"></td>
+					<td class="text-center">
+						<a href="#" th:onclick="|borrarContacto(${c.id})|"><button class="btn btn-danger btn-sm">Borrar</button></a>
+						<form id="form-editar" th:action="@{'/usuario/editar/'+${c.id}}" method="post">
+						<button type="submit" class="btn btn-warning btn-sm">Editar</button>
+						</form>						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- Paginacion -->
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li th:if="${currentPage != 0}" class="page-item"><a th:href="@{'/usuario/mostrar-contactos/'+${currentPage-1}}" class="page-link" href="#"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
+				<li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1, totalPags)}" class="page-item">
+					<a th:href="@{'/usuario/mostrar-contactos/'+${i-1}}" class="page-link" href="#">
+						<span th:text="${i}"></span>
+					</a>
+				</li>
+				<li th:if="${currentPage+1 != totalPags}" class="page-item"><a th:href="@{'/usuario/mostrar-contactos/'+${currentPage+1}}" class="page-link" href="#"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>

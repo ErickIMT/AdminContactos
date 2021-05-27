@@ -1,0 +1,68 @@
+
+<div id="admin-usuarios" class="card ms-3">
+	<div class="card-body">
+		<h1 class="text-center">Usuarios</h1>
+		
+
+		
+		<table class="table table-success table-striped">
+			<thead class="text-center">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Roles</th>
+
+					<th scope="col">Email</th>
+					<th scope="col">Bio</th>
+
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c : ${usuarios}">
+					<td scope="row">1</td>
+
+					<td class="text-center">
+						<span th:text="${c.nombre}"></span>
+
+					</td>
+					<td class="text-center">
+						<input disabled name="activo" type="checkbox" class="form-check-input me-2" th:checked="*{c.activo}">
+					</td>
+					<td class="text-center">
+
+						<span th:text="${c.roles}"></span>
+
+					</td>
+					<td class="text-center">
+
+						<span th:text="${c.email}"></span>
+
+					</td>
+					<td class="text-center" th:text="${c.bio}"></td>
+					<td class="text-center">
+						<button type="button" class="btn btn-warning btn-sm"><a class="text-muted" th:href="@{'/admin/edit/'+${c.id}}">Edit<a/></button>
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- Paginacion -->
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li th:if="${currentPage != 0}" class="page-item"><a th:href="@{'/admin/admin-usuarios/'+${currentPage-1}}" class="page-link" href="#"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
+				<li th:classappend="${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1, totalPags)}" class="page-item">
+					<a th:href="@{'/admin/admin-usuarios/'+${i-1}}" class="page-link" href="#">
+						<span th:text="${i}"></span>
+					</a>
+				</li>
+				<li th:if="${currentPage+1 != totalPags}" class="page-item"><a th:href="@{'/admin/admin-usuarios/'+${currentPage+1}}" class="page-link" href="#"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>

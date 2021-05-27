@@ -1,0 +1,204 @@
+/*General*/
+body{
+	background-color: #e3e3e3;
+}
+
+a{
+	text-decoration: none;
+	
+}
+
+/* Estilos Navbar */
+
+#navbarHome{
+    background-color: #00af91;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#cajaLogoNombre{
+    margin-left: 0px;
+    cursor: pointer;    
+    animation: desdeArriba 1s linear;
+}
+
+#cajaLogoNombre:hover{
+    background-color: #007965;
+    border-radius: 15%;
+}
+
+@keyframes desdeArriba{
+    from{
+        transform: translateY(-100%);
+    }to{
+        transform: translateY(0%);
+    }
+}
+
+#navbarLogo{
+    width: 52px;
+    height: 52px;
+    margin-right: 20px;
+    animation-name: rotar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotar{
+    from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+}
+
+#navbarHome div{
+margin-left: 20px;
+}
+
+#menuBox ul li{
+    cursor:pointer;
+    margin-right: 10px;
+    font-size: 15px;    
+}
+
+#menuBox ul li:hover{
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid #ffcc29;
+    border-radius: 15%;
+}
+
+#dropdownMenuUsuario{
+	left:auto;
+	right: 0px;
+}
+
+
+/*Sidebar*/
+
+#barra-lateral{
+	border-radius: 5%;
+}
+
+.sidebar{
+	width: 18%;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+}
+
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+}
+
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+
+
+#seccion1{
+	margin-left: 20%;
+	background-color:white;
+	margin-top: 80px;
+	border-radius: 2%;
+}
+
+.sidebar .botonX{
+	position:absolute;
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+footer{
+	margin-left: 20%;
+}
+
+/*Contactos*/
+
+.imgContacto{
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+.imgContactoDet{
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+@media only screen and (max-width: 600px){
+	.sidebar{
+		display:none;
+		width: 80% !important;
+		background: white;
+		height: 100vh;
+		position:fixed;
+		padding-top: 20px;
+	}
+	
+	#seccion1{
+		margin-left: 0% !important;
+	}
+	
+}
+
+/*Agregar Contacto*/
+
+.icono{
+	height:100%;
+}
+
+#botones{
+	margin-bottom:15px;	
+}
+
+#botones button{
+    background-color: #f58634;  
+    color:white;  
+}
+
+#botones button:hover{
+    border: 2px solid #ffcc29;    
+}
+
+/*Mostrar Contactos*/
+
+#mostrar-contactos{
+	width: 96%;
+}
+
+#form-editar{
+	display:contents;
+	width:60px;
+}
+
+/*Busqueda Contactos*/
+
+.search-container{
+	position: relative;
+}
+
+.search-result{
+	position:absolute;
+	background: white;
+	width:100%;
+	padding: 10px;
+	border: 1px solid gray;
+	display: none;
+	overflow-y:scroll;
+	max-height: 150px;
+}

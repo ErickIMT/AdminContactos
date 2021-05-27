@@ -1,0 +1,99 @@
+<section>
+		<div id="mostrar-contactos" class="card ms-3">
+			<div class="card-body">
+				<h1 class="text-center">Editar Contacto</h1>
+		
+			<div class="container-fluid mt-1">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+					
+						<form th:action="@{/usuario/guardarContactoEditado}" th:object="${contacto}" 
+						 method="post"	class="mt-2 needs-validation" enctype="multipart/form-data">
+							<input th:value="${contacto.id}" type="hidden" name="id"/>
+  
+							<!-- Nombre -->
+							<div class="input-group position-relative" title="Ingresa el Nombre del Contacto">
+								<div class="input-group-prepend">
+									<div class="input-group-text icono">
+										<i class="fa fa-plus"></i>
+									</div>
+								</div>
+								<input  th:value="${contacto.nombre}" pattern="^[A-Za-z]+$" maxlength="20" required type="text" id="nombre" name="nombre" placeholder="Ingresa Nombre"
+								class ="form-control">								
+							</div>
+							<div class="ms-2 form-text">Nombre debe contener solo letras</div>
+							
+							<!-- Apellidos -->
+							<div class="input-group mt-3" title="Ingresa el Apellido del Contacto">
+								<div class="input-group-prepend">
+									<div class="input-group-text icono">
+										<i class="fas fa-user-alt"></i>
+									</div>
+								</div>
+								<input th:value="${contacto.apellidos}" pattern="^[A-Za-z]+$" maxlength="20" required type="text" id="apellidos" name="apellidos" placeholder="Ingresa Apellidos"
+								class ="form-control">
+							</div>
+							<div class="ms-2 form-text">Apellido debe contener solo letras</div>
+							
+							<!-- Telefono -->
+							<div class="input-group mt-3" title="Ingresa Numero Telefonico">
+								<div class="input-group-prepend">
+									<div class="input-group-text icono">
+										<i class="fa fa-phone"></i>
+									</div>
+								</div>
+								<input th:value="${contacto.telefono}" type="number" required min="100000" max="999999999" id="telefono" name="telefono" placeholder="Ingresa Numero Telefonico"
+								class ="form-control">
+							</div>
+							<div class="ms-2 form-text">Ingresar solo numeros min 6 - max 9 digitos</div>
+							
+							<!-- Correo -->
+							<div class="input-group mt-3" title="Ingresa Correo Electronico">
+								<div class="input-group-prepend">
+									<div class="input-group-text icono">
+										@
+									</div>
+								</div>
+								<input th:value="${contacto.correo}" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required type="email" id="correo" name="correo" placeholder="Ingresa Correo Electronico"
+								class ="form-control">
+							</div>
+							<div class="ms-2 form-text">Ingresar correo electronico valido - Ejemplo: (nombre@correo.com)</div>
+							
+							<!-- Puesto de Trabajo -->
+							<div class="input-group mt-3" title="Ingresa el Puesto de Trabajo / Profesion">
+								<div class="input-group-prepend">
+									<div class="input-group-text icono">
+										<i class="fa fa-briefcase"></i>
+									</div>
+								</div>
+								<input th:value="${contacto.trabajo}" pattern="^[A-Za-z]+$" maxlength="20" required type="text" id="trabajo" name="trabajo" placeholder="Ingresa Puesto de Trabajo"
+								class ="form-control">
+							</div>
+							<div class="ms-2 form-text">Ingresar solo letras</div>
+							
+							<!-- Descripcion Contacto -->
+							<div class="form-group mt-3 mb-3" title="Ingresa Descripcion del contacto">
+								<textarea th:text="${contacto.descripcion}" name="descripcion" id="descripcionarea" class="form-control" rows="15" placeholder="Ingresa descripcion del contacto"></textarea>
+							  
+							</div>
+							<div class="container text-center">
+								<img class ="img-fluid imgContactoDet" th:src="@{'/img/contactos/'+${contacto.imagen}}" alt="imgContacto"/>
+							</div>
+							<!--
+							<p class="text-secondary">Selecciona nueva imagen</p>-->
+							<!-- Imagen de Contacto -->
+							<!--<div class="custom-file">
+								<input type="file" name="imagen" id="imagen" accept="image/*" />
+							</div>-->
+							
+							<div class="container text-center mt-3" id="botones">
+		                                <button type="submit" class="btn">Guardar Contacto</button>
+		                                <button type="reset" class="btn">Borrar Datos</button>
+		                    </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,30 @@
+
+<section id="contenedorPrincipalLogin">
+	<!-- Mensaje -->
+	
+	<div class="containerlogin" id="containerLogin">
+		<div class="alert alert-success">
+			Hemos enviado una clave a tu correo...
+		</div>
+		<div class="container" th:if="${session.mensajeOtp}">
+			<div class="alert alert-danger my-2 text-center">
+				<span th:text="${session.mensajeOtp}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('mensajeOtp')}"></th:block>
+		</div>
+		<div id="loginFormContainer" class="row rowlogin text-center">
+		
+
+			<form th:action="@{/verificarOtpForm}" method="post">
+				<div class="from-group mb-3">
+					<input name="otp" type="number"
+						placeholder="Ingresa aqui la clave enviada a tu correo"
+						class="form-control" required />
+				</div>
+				<div class="container text-center mb-3	">
+					<button class="btn btn-success">Verificar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>

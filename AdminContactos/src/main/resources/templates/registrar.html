@@ -1,0 +1,113 @@
+<section id="contenedorPrincipalSignUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="my-card mt-1">
+
+                       <div th:if="${mensaje}" class="container">
+    						<div th:classappend="${'alert-'+mensaje.tipo}" class="alert text-center" role="alert">
+    							<span th:text="${mensaje.mensaje}"></span>
+    						</div>
+    				   </div>
+                        
+                        <div class="container text-center">
+                        	<h1 class="text-center">Registrate Aqui !!</h1>
+                        	<br/>
+                            <img style="width: 80px;"th:src="@{img/register.png}" alt="" class="">
+                        </div>
+                        <form th:action="@{/registrar}" method="post" th:object="${usuario}">
+                            <!--Campo Nombre-->
+                            <div class="form-group">
+
+                                <label for="name_field">Nombre y Apellidos: </label>
+                                <input name="name" type="text" pattern="^[A-Za-z]+$" class="form-control" id="name_field" 
+                                aria-describedby="emailHelp" placeholder="Ingresar Nombre" required="required"
+                                th:field="*{nombre}">
+
+                                <div class="invalid-feedback">
+
+                                </div>                                
+                            </div>
+
+                            <!--Campo Correo-->
+                            <div class="form-group">
+
+                                <label for="email_field">Email: </label>
+                                <input name="email" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" class="form-control" id="email_field"
+                                    aria-describedby="emailHelp" placeholder="Ingresar Email" required="required"
+                                    th:field="*{email}">
+                                
+                                    <div class="invalid-feedback">
+
+                                    </div>                                
+                            </div>
+
+                            <!--Campo Password-->
+                            <div class="form-group">
+
+                                <label for="password_field">Password: </label>
+                                <input name="password" type="password" class="form-control" id="password_field"
+                                    aria-describedby="emailHelp" placeholder="Ingresar Password" required="required"
+                                    th:field="*{password}">
+
+                                    <div class="invalid-feedback">
+
+                                    </div>                                
+                            </div>
+
+                            <!--Campo Acerca de Ti-->
+                            <div class="form-group">
+                            	<label for="registrar">Sobre Ti</label>
+	
+                               <textarea name="about" placeholder="Cuentanos sobre Ti" rows="7" class="form-control" 
+                               id="registrar" th:field="*{bio}">
+                               </textarea>
+                                
+                            </div>
+                            
+                             <!--Terminos y Condiciones-->
+                             <div class="form-group form-check mt-2 d-flex justify-content-center" id="term" data-bs-toggle="modal" data-bs-target="#terminosCondiciones">
+                               <input type="checkbox" class="form-check-input" id="agreement" name="agreement">
+                               &nbsp;<label for="agreement" class="">Acepto los Terminos y Condiciones</label >
+                            </div>
+                            
+                            <div class="modal fade" id="terminosCondiciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Terminos y Condiciones</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <h5>Nadie Lee esto, pero si esta aqui leyendo aqui abajo te dejo al detalle lo que estas aceptando</h5>
+                                      <hr>
+                                      <p>
+                                        ¡Bienvenido a Riot Games! Nuestro aviso de privacidad explica qué información recopila Riot Games cuando visita o usa los servicios de Riot, así como las formas en que podemos usarla o compartirla. Solo describimos nuestras propias prácticas; este aviso no se aplica a terceros que no somos de nuestra propiedad ni que controlamos, incluidas otras empresas con las que podrías interactuar en los servicios de Riot oa través de ellos (consulta Sitios web y servicios de terceros).
+
+                                        Riot Games, Inc. tiene su sede en Los Ángeles. Riot Games, Inc. y sus subsidiarias son parte de un grupo global de compañías de juegos afiliadas con oficinas y operaciones en todo el mundo (consulte Procesamiento internacional de datos). Cuando decimos "Riot Games" (o cosas similares como "nosotros" o "nos"), nos referimos a la entidad de Riot Games o, cuando corresponda, a las entidades que controlan y son responsables de su información (consulte Contáctenos para ver quien es ese).
+
+                                        Cuando decimos "servicios de Riot", nos referimos a cualquier juego, sitio web, aplicación y servicio que se vincule a este aviso, independientemente de cómo acceda o utilice o interactúe con nosotros, incluso a través de dispositivos móviles o fuera de línea, como por teléfono. El uso que haga de los servicios de Riot también está sujeto a los Términos de servicio de su región (incluidas sus disposiciones sobre limitaciones de daños, resolución de disputas y aplicación de las leyes vigentes). Lea este aviso completo para asegurarse de que lo comprende. También debes leer los Términos de servicio detenidamente y asegurarte de que los entiendes y los aceptas antes de utilizar los servicios de Riot.
+
+                                        Le recomendamos que utilice las funciones interactivas del aviso como guía. Hemos escrito resúmenes para identificar los problemas clave discutidos en muchas secciones de un vistazo. Sin embargo, estos resúmenes están destinados únicamente a simplificar las cosas y se debe leer el aviso completo, ya que tiene prioridad en caso de ambigüedad o conflicto (¡así que asegúrese de leer todo con atención!). Haga clic en los botones "Expandir" para obtener más detalles sobre temas particulares que le interesen. Para pasar de una sección a otra, utilice los botones "Volver al principio" y la tabla de contenido a continuación.
+
+                                        Si no comprende alguna parte del aviso, comuníquese con nosotros si tiene preguntas.
+                                      </p>
+                                      <hr>
+                                      <h5>PD: Solo es un fragmento de los terminos de League Of Legends :) Gracias por leer!</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="container text-center mt-3" id="botonesLogin">
+                                <button type="submit" class="btn">Enviar</button>
+                                <button type="reset" class="btn">Borrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

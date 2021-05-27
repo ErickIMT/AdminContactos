@@ -1,0 +1,35 @@
+<section>
+	<div id="mostrar-contactos" class="card ms-3">
+		<div class="card-body" th:if="${contacto}">
+			<div class="container text-center">
+				<img class ="imgContactoDet" th:src="@{'/img/contactos/'+${contacto.imagen}}" alt="imgContacto"/>
+				<h3 class="mt-3" th:text="${contacto.nombre + ' ' +contacto.apellidos}"></h3>
+				<table class="table table-success table-striped text-center">
+					<tr>
+						<th scope="col">Correo</th>
+						<td><span th:text="${contacto.correo}"></span></td>
+					</tr>
+					<tr>
+						<th scope="col">Telefono</th>
+						<td><span th:text="${contacto.telefono}"></span></td>
+					</tr>
+					<tr>
+						<th scope="col">Profesion</th>
+						<td><span th:text="${contacto.trabajo}"></span></td>
+					</tr>
+				</table>
+				
+				<div class="description">
+					<th:block th:utext="${contacto.descripcion}"></th:block>
+				</div>
+				<div class="d-grid gap-2 col-6 mx-auto">
+					<a class="btn btn-danger btn-sm" th:onclick="|borrarContacto(${contacto.id})|">Borrar</a>
+					<form th:action="@{'/usuario/editar/'+${contacto.id}}" method="post">
+						<button type="submit" class="btn btn-warning btn-sm w-100">Editar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<h1 class="text-center p-3 bg-danger text-white" th:unless="${contacto}">No tienes permiso para ver este contacto</h1>
+	</div>
+</section>

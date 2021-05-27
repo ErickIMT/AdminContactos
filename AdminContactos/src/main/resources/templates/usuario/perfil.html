@@ -1,0 +1,32 @@
+<section>
+	<div id="mostrar-contactos" class="card ms-3">
+		<div class="card-body text-center">		
+		<img class ="imgContactoDet" th:src="@{'/img/contactos/'+${usuario.imgUrl}}" alt="imgPerfil"/>
+		<h1 th:text="${usuario.nombre}"></h1>
+			<div class="container">
+				<table class="table table-success table-striped text-center">
+					<tr>
+						<th scope="col">#Id Usuario</th>
+						<td><span th:text="${usuario.id}"></span></td>
+					</tr>
+					<tr>
+						<th scope="col">Correo</th>
+						<td><span th:text="${usuario.email}"></span></td>
+					</tr>
+					<tr>
+						<th scope="col">Rol</th>
+						<td><span th:text="${usuario.roles}"></span></td>
+					</tr>
+					<tr>
+						<th scope="col">Activo</th>
+						<td><input type="checkbox" class="form-check-input" disabled th:checked="${usuario.activo}"/></td>
+					</tr>
+					<tr>
+						<th scope="col">Bio</th>
+						<td><span th:text="${usuario.bio}"></span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

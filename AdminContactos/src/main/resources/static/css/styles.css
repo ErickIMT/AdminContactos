@@ -1,0 +1,263 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+/*****----------------------------------------
+     1) font-family: 'Rajdhani', sans-serif;  
+     2) font-family: 'Poppins', sans-serif; 
+----------------------------------------*****/
+
+/*Barra de Navegacion*/
+#navbarHome{
+    background-color: #00af91;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#cajaLogoNombre{
+    margin-left: 0px;
+    cursor: pointer;    
+    animation: desdeArriba 1s linear;
+}
+
+#cajaLogoNombre:hover{
+    background-color: #007965;
+    border-radius: 15%;
+}
+
+@keyframes desdeArriba{
+    from{
+        transform: translateY(-100%);
+    }to{
+        transform: translateY(0%);
+    }
+}
+
+#navbarLogo{
+    width: 52px;
+    height: 52px;
+    margin-right: 20px;
+    animation-name: rotar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotar{
+    from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+}
+
+#navbarHome div{
+margin-left: 20px;
+}
+
+#menuBox ul li{
+    cursor:pointer;
+    margin-right: 10px;
+    font-size: 15px;    
+}
+
+#menuBox ul li:hover{
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid #ffcc29;
+    border-radius: 15%;
+}
+
+/*Footer*/
+
+footer{
+	background-color: #212529;
+}
+
+#seccionesFooter{
+    background-color: #00af91;
+    border:2px solid black;
+    border-radius: 5px;   
+}
+
+#seccionesFooter a{     
+    text-decoration: none;
+    color: #ffcc29;
+}
+
+#containerRedes img{
+    width: 65px;
+    height: 65px;
+    margin-top:10px;
+    margin-bottom: 20px;
+    margin-left: 6%;
+}
+
+#containerRedes a{
+    cursor: pointer;
+}
+
+#containerRedes a:hover img{
+    border:2px solid #ffcc29;
+    border-radius: 10px;
+    background-color: #007965;
+}
+
+#mapa{
+    width: 550px;
+    height: 350px;
+    border: 1px solid #ffcc29;
+    border-radius: 5px;
+}
+
+/*Login*/
+
+#contenedorPrincipalLogin{
+    background-image:url(../img/backgroundLogin.jpg);
+    background-size: 100% 100%;
+}
+
+#containerLogin{
+    width: 390px;
+    height: 650px;
+    margin: auto;
+    padding-top: 100px;
+}
+
+#loginFormContainer{
+	padding-top: 20px;
+	background-color: rgba(186, 186, 186, 0.7);
+	border-radius: 20%;
+	border: 2px solid black;
+}
+
+#botonesLogin button{
+    background-color: #f58634;  
+    color:white;  
+}
+
+#botonesLogin button:hover{
+    border: 2px solid #ffcc29;    
+}
+
+#enlacesLogin a,
+#enlacesLogin label{
+    color:#ffcc29;
+    text-decoration: none;
+}
+
+#contenedorPrincipalSignUp{
+    background-color: #007965;
+    height: 750px;
+}
+
+#term{
+    color:#ffcc29;
+}
+
+#terminosCondiciones div {
+    background-color: #00af91;
+    color:white;
+}
+
+#terminosCondiciones button{
+    background-color: #f58634;  
+    color:white; 
+}
+
+#terminosCondiciones button:hover{
+    background-color: #f58634;  
+    border: 2px solid #ffcc29; 
+}
+
+/*Home*/
+
+#bodyHome img {
+	max-width: 100%;
+	height: auto;
+}
+
+#bodyHome {
+	color: #666666;
+	font-size: 14px;
+	font-family: 'Poppins', sans-serif;
+	line-height: 1.80857;
+	font-weight: normal;
+	overflow-x: hidden;
+
+}
+
+#bodyHome a {
+	text-decoration: none !important;
+	outline: none !important;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+
+#bodyHome h1,
+#bodyHome h2,
+#bodyHome h3,
+#bodyHome h4,
+#bodyHome h5,
+#bodyHome h6 {
+	letter-spacing: 0;
+	font-weight: normal;
+	position: relative;
+	padding: 0 0 10px 0;
+	font-weight: normal;
+	line-height: normal;
+	color: #111111;
+	margin: 0
+}
+
+.banner-main {
+	position: relative;
+}
+
+.banner-main .carousel-caption h1 {
+	color: #fff;
+	font-size: 70px;
+	line-height: 70px;
+	font-weight: bold;
+}
+
+.banner-main .carousel-caption p {
+	font-size: 17px;
+	padding: 20px 0px 40px 0px;
+}
+
+.banner-main .carousel-caption a {
+	text-transform: uppercase;
+	border: #0fc690 solid 1px;
+	background: rgba(15, 199, 144, 0.6);
+	width: 196px;
+	padding: 12px 0;
+	display: inline-block;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 30px;
+	color: #fff;
+}
+
+.banner-main .carousel-caption a:hover {
+	border: #000 solid 1px;
+	background: #000;
+}
+
+#bodyHome h1 {
+	color: #fff;
+	font-size: 60px;
+	letter-spacing: 7px;
+	
+}
+
+#regAqui{
+	width: 300px;
+}
+

@@ -1,0 +1,31 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-body">
+						<h3 class="mb-3">Cambiar Password</h3>
+						
+						<form th:action="@{/usuario/cambiarPass}" method="post">
+							<!-- Campo password antiguo -->
+							<div class="form-group mb-3">
+								<input name="PassAntiguo" type="password" class="form-control" placeholder="Ingresa tu password actual"/>
+							</div>
+						
+							<!-- Campo nuevo password -->
+							<div class="form-group mb-3">
+								<input name="PassNuevo" type="password" class="form-control" placeholder="Ingresa Nuevo Password"/>
+							</div>
+							
+							<div class="container text-center">
+								<button type="submit" class="btn btn-success">Guardar</button>
+								<button type="reset" class="btn btn-warning">Borrar</button>
+							</div>
+						</form>
+					</div>				
+				</div>			
+			</div>		
+		</div>
+	</div>
+
+</section>

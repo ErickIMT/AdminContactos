@@ -1,0 +1,28 @@
+
+	<section id="contenedorPrincipalLogin">
+		<div class="containerlogin" id="containerLogin">
+			<div id="loginFormContainer" class="row rowlogin text-center">
+			    
+			    <!-- Mensaje -->
+			    <div class="container" th:if="${session.mensaje}">
+			    	<div class="alert alert-danger my-2 text-center">
+			    		<span th:text="${session.mensaje}"></span>
+			    	</div>
+			    	<th:block th:text="${#session.removeAttribute('mensaje')}"></th:block>
+			    </div>
+			    
+			    
+				<!-- Formulario Email -->
+				<h3 class="text-center">Recuperar Password</h3>
+				
+				<form th:action="@{/sendMailOtp}" method="post">
+					<div class="from-group mb-3">
+						<input name ="email" type="email" placeholder="Ingresa aqui tu correo registrado" class="form-control" required/>
+					</div>
+					<div class="container text-center mb-3	">
+						<button class="btn btn-warning">Enviar Solicitud</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>

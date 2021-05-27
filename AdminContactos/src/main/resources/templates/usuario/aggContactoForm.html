@@ -1,0 +1,85 @@
+<div id="mostrar-contactos" class="card ms-3">
+	<div class="card-body">
+	<h1 class="text-center">Agregar Contacto</h1>
+	
+		<div class="container-fluid mt-1">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<form th:action="@{/usuario/guardarContacto}" th:object="${contacto}" 
+					 method="post"	class="mt-2">
+						
+						<!-- Nombre -->
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="input-group-text icono">
+									<i class="fa fa-plus"></i>
+								</div>
+							</div>
+							<input required type="text" pattern="^[A-Za-z]+$" maxlength="20" id="nombre" name="nombre" placeholder="Ingresa Nombre"
+							class ="form-control">
+						</div>
+						
+						<!-- Apellidos -->
+						<div class="input-group mt-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text icono">
+									<i class="fas fa-user-alt"></i>
+								</div>
+							</div>
+							<input required pattern="^[A-Za-z]+$" maxlength="20" type="text" id="apellidos" name="apellidos" placeholder="Ingresa Apellidos"
+							class ="form-control">
+						</div>
+						
+						<!-- Telefono -->
+						<div class="input-group mt-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text icono">
+									<i class="fa fa-phone"></i>
+								</div>
+							</div>
+							<input type="number" required min="100000" max="999999999" id="telefono" name="telefono" placeholder="Ingresa Numero Telefonico"
+							class ="form-control">
+						</div>
+						
+						<!-- Correo -->
+						<div class="input-group mt-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text icono">
+									@
+								</div>
+							</div>
+							<input required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" type="email" id="correo" name="correo" placeholder="Ingresa Correo Electronico"
+							class ="form-control">
+						</div>
+						
+						<!-- Puesto de Trabajo -->
+						<div class="input-group mt-3">
+							<div class="input-group-prepend">
+								<div class="input-group-text icono">
+									<i class="fa fa-briefcase"></i>
+								</div>
+							</div>
+							<input required type="text" pattern="^[A-Za-z]+$" maxlength="20" 0id="trabajo" name="trabajo" placeholder="Ingresa Puesto de Trabajo"
+							class ="form-control">
+						</div>
+						
+						<!-- Descripcion Contacto -->
+						<div class="form-group mt-3 mb-3">
+							<textarea name="descripcion" id="descripcionarea" class="form-control" rows="15" placeholder="Ingresa descripcion del contacto"></textarea>
+						</div>
+						
+						<!-- Imagen de Contacto 
+						<div class="custom-file">
+							<input type="file" name="imagen" id="imagen" accept="image/*" />
+						</div>-->
+						
+						<div class="container text-center mt-3" id="botones">
+	                                <button type="submit" class="btn">Guardar Contacto</button>
+	                                <button type="reset" class="btn">Borrar</button>
+	                    </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
